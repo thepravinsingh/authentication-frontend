@@ -1,14 +1,14 @@
 "use client";
-import axios from "axios";
-import Link from "next/link";
-import { useRouter } from "next/navigation";
 import { useState } from "react";
+import axios from "axios";
 import Swal from "sweetalert2";
-export default function Login() {
-  const router = useRouter();
+import Link from "next/link";
 
+export default function Signup() {
   const [data, setFormData] = useState({
+    username: "",
     email: "",
+    phone: "",
     password: "",
   });
 
@@ -23,7 +23,7 @@ export default function Login() {
   const handleSubmit = async () => {
     try {
       const response = await axios.post(
-        "http://localhost:4000/api/auth/login",
+        "http://localhost:4000/api/auth/register",
         data,
         {
           headers: {
@@ -35,16 +35,15 @@ export default function Login() {
 
       if (response.status === 201) {
         Swal.fire({
-          title: "You Are Login Successfully",
+          title: "You is Registered Successfully",
           icon: "success",
           draggable: true,
-        }).then(() => {
-          router.push("/");
         });
       }
-
       setFormData({
+        username: "",
         email: "",
+        phone: "",
         password: "",
       });
     } catch (error) {
@@ -52,7 +51,7 @@ export default function Login() {
       Swal.fire({
         icon: "error",
         title: "Oops...",
-        text: error.response.data.message,
+        text: error.response.data.mess,
         footer: '<a href="#">Why do I have this issue?</a>',
       });
     }
@@ -61,7 +60,18 @@ export default function Login() {
   return (
     <div className="flex flex-col  justify-center items-center h-screen">
       <div className=" flex flex-col justify-between gap-2 p-4 border rounded-md  shadow-md">
-        <h4 className="font-semibold text-[1.2rem] self-center">Login</h4>
+        <h4 className="font-semibold text-[1.2rem] self-center">Signup</h4>
+        <div className="flex justify-between w-full gap-1 text-[0.8rem] font-medium">
+          <label htmlFor="username">Username:</label>
+          <input
+            type="text"
+            name="username"
+            value={data.username}
+            onChange={handleChange}
+            className="border rounded-md text-[0.8rem] "
+          />
+        </div>
+
         <div className="flex justify-between w-full gap-1 text-[0.8rem] font-medium">
           <label htmlFor="email">Email:</label>
           <input
@@ -72,6 +82,18 @@ export default function Login() {
             className="border rounded-md text-[0.8rem] "
           />
         </div>
+
+        <div className="flex justify-between w-full gap-1 text-[0.8rem] font-medium">
+          <label htmlFor="phone">Phone:</label>
+          <input
+            type="tel"
+            name="phone"
+            value={data.phone}
+            onChange={handleChange}
+            className="border rounded-md text-[0.8rem] "
+          />
+        </div>
+
         <div className="flex justify-between w-full gap-1 text-[0.8rem] font-medium">
           <label htmlFor="password">Password:</label>
           <input
@@ -84,7 +106,7 @@ export default function Login() {
         </div>
 
         <p className="text-[0.8rem] font-medium">
-          Do register <Link href="/signup">signup</Link>{" "}
+          Already register <Link href="/login">login</Link>{" "}
         </p>
 
         <button
