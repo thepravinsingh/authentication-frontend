@@ -3,8 +3,10 @@ import { useState } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 export default function Signup() {
+  const router = useRouter();
   const [data, setFormData] = useState({
     username: "",
     email: "",
@@ -38,6 +40,8 @@ export default function Signup() {
           title: "You is Registered Successfully",
           icon: "success",
           draggable: true,
+        }).then(() => {
+          router.push("/");
         });
       }
       setFormData({
