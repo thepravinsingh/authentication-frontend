@@ -69,7 +69,7 @@ export default function Login() {
             name="email"
             value={data.email}
             onChange={handleChange}
-            className="border rounded-md text-[0.8rem] "
+            className="border rounded-md text-[0.8rem] py-0.5 px-2"
           />
         </div>
         <div className="flex justify-between w-full gap-1 text-[0.8rem] font-medium">
@@ -79,12 +79,15 @@ export default function Login() {
             name="password"
             value={data.password}
             onChange={handleChange}
-            className="border rounded-md text-[0.8rem] "
+            className="border rounded-md text-[0.8rem] py-0.5 px-2"
           />
         </div>
 
         <p className="text-[0.8rem] font-medium">
-          Do register <Link href="/signup">signup</Link>{" "}
+          Don't have an account?{" "}
+          <Link href="/signup" className="font-semibold">
+            signup
+          </Link>
         </p>
 
         <button

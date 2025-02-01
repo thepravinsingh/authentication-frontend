@@ -72,7 +72,7 @@ export default function Signup() {
             name="username"
             value={data.username}
             onChange={handleChange}
-            className="border rounded-md text-[0.8rem] "
+            className="border rounded-md text-[0.8rem] py-0.5 px-2"
           />
         </div>
 
@@ -83,7 +83,7 @@ export default function Signup() {
             name="email"
             value={data.email}
             onChange={handleChange}
-            className="border rounded-md text-[0.8rem] "
+            className="border rounded-md text-[0.8rem] py-0.5 px-2"
           />
         </div>
 
@@ -94,7 +94,7 @@ export default function Signup() {
             name="phone"
             value={data.phone}
             onChange={handleChange}
-            className="border rounded-md text-[0.8rem] "
+            className="border rounded-md text-[0.8rem] py-0.5 px-2"
           />
         </div>
 
@@ -105,12 +105,15 @@ export default function Signup() {
             name="password"
             value={data.password}
             onChange={handleChange}
-            className="border rounded-md text-[0.8rem] "
+            className="border rounded-md text-[0.8rem] py-0.5 px-2"
           />
         </div>
 
         <p className="text-[0.8rem] font-medium">
-          Already register <Link href="/login">login</Link>{" "}
+          Already have an account? {" "}
+          <Link href="/login" className="font-semibold ">
+            login
+          </Link>{" "}
         </p>
 
         <button
