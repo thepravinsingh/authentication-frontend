@@ -62,67 +62,99 @@ export default function Signup() {
   };
 
   return (
-    <div className="flex flex-col  justify-center items-center h-screen">
-      <div className=" flex flex-col justify-between gap-2 p-4 border rounded-md  shadow-md">
-        <h4 className="font-semibold text-[1.2rem] self-center">Signup</h4>
-        <div className="flex justify-between w-full gap-1 text-[0.8rem] font-medium">
-          <label htmlFor="username">Username:</label>
-          <input
-            type="text"
-            name="username"
-            value={data.username}
-            onChange={handleChange}
-            className="border rounded-md text-[0.8rem] py-0.5 px-2"
-          />
-        </div>
+   <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-blue-50 to-blue-100">
+  <div className="bg-white w-full max-w-sm p-6 rounded-2xl shadow-lg border border-gray-100">
+    <h4 className="text-2xl font-semibold text-center text-gray-800 mb-6">Signup</h4>
 
-        <div className="flex justify-between w-full gap-1 text-[0.8rem] font-medium">
-          <label htmlFor="email">Email:</label>
-          <input
-            type="email"
-            name="email"
-            value={data.email}
-            onChange={handleChange}
-            className="border rounded-md text-[0.8rem] py-0.5 px-2"
-          />
-        </div>
-
-        <div className="flex justify-between w-full gap-1 text-[0.8rem] font-medium">
-          <label htmlFor="phone">Phone:</label>
-          <input
-            type="tel"
-            name="phone"
-            value={data.phone}
-            onChange={handleChange}
-            className="border rounded-md text-[0.8rem] py-0.5 px-2"
-          />
-        </div>
-
-        <div className="flex justify-between w-full gap-1 text-[0.8rem] font-medium">
-          <label htmlFor="password">Password:</label>
-          <input
-            type="text"
-            name="password"
-            value={data.password}
-            onChange={handleChange}
-            className="border rounded-md text-[0.8rem] py-0.5 px-2"
-          />
-        </div>
-
-        <p className="text-[0.8rem] font-medium">
-          Already have an account? {" "}
-          <Link href="/login" className="font-semibold ">
-            login
-          </Link>{" "}
-        </p>
-
-        <button
-          onClick={handleSubmit}
-          className="border-2 bg-blue-500 hover:bg-blue-300 text-white text-[0.8rem] px-4 py-1 rounded-lg"
-        >
-          Submit
-        </button>
-      </div>
+    {/* Username Input */}
+    <div className="flex flex-col mb-4">
+      <label
+        htmlFor="username"
+        className="text-sm font-medium text-gray-700 mb-1"
+      >
+        Username
+      </label>
+      <input
+        type="text"
+        name="username"
+        value={data.username}
+        onChange={handleChange}
+        placeholder="Enter your username"
+        className="border border-gray-300 rounded-md px-3 py-2 text-sm focus:ring-2 focus:ring-blue-400 focus:outline-none"
+      />
     </div>
+
+    {/* Email Input */}
+    <div className="flex flex-col mb-4">
+      <label
+        htmlFor="email"
+        className="text-sm font-medium text-gray-700 mb-1"
+      >
+        Email
+      </label>
+      <input
+        type="email"
+        name="email"
+        value={data.email}
+        onChange={handleChange}
+        placeholder="Enter your email"
+        className="border border-gray-300 rounded-md px-3 py-2 text-sm focus:ring-2 focus:ring-blue-400 focus:outline-none"
+      />
+    </div>
+
+    {/* Phone Input */}
+    <div className="flex flex-col mb-4">
+      <label
+        htmlFor="phone"
+        className="text-sm font-medium text-gray-700 mb-1"
+      >
+        Phone
+      </label>
+      <input
+        type="tel"
+        name="phone"
+        value={data.phone}
+        onChange={handleChange}
+        placeholder="Enter your phone number"
+        className="border border-gray-300 rounded-md px-3 py-2 text-sm focus:ring-2 focus:ring-blue-400 focus:outline-none"
+      />
+    </div>
+
+    {/* Password Input */}
+    <div className="flex flex-col mb-4">
+      <label
+        htmlFor="password"
+        className="text-sm font-medium text-gray-700 mb-1"
+      >
+        Password
+      </label>
+      <input
+        type="password"
+        name="password"
+        value={data.password}
+        onChange={handleChange}
+        placeholder="Enter your password"
+        className="border border-gray-300 rounded-md px-3 py-2 text-sm focus:ring-2 focus:ring-blue-400 focus:outline-none"
+      />
+    </div>
+
+    {/* Login Link */}
+    <p className="text-sm text-gray-600 text-center mb-4">
+      Already have an account?{" "}
+      <Link href="/login" className="text-blue-600 font-semibold hover:underline">
+        Login
+      </Link>
+    </p>
+
+    {/* Submit Button */}
+    <button
+      onClick={handleSubmit}
+      className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium text-sm py-2 rounded-lg transition-all duration-200"
+    >
+      Sign Up
+    </button>
+  </div>
+</div>
+
   );
 }
